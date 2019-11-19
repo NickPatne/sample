@@ -1,0 +1,6 @@
+---
+- hosts: 10.136.58.25
+  tasks:
+      - name: sample
+        debug:
+            msg: "Hello World..!!"

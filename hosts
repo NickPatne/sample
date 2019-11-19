@@ -1,0 +1,3 @@
+[web]
+10.136.58.38
+10.136.58.25 ansible_user=gslab ansible_become=yes

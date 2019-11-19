@@ -1,0 +1,11 @@
+---
+- hosts: 10.136.58.25
+  become: yes
+  
+ 
+  tasks: 
+      - name: print msg
+        debug: 
+          msg: "im running"
+      - name: Install Git
+        apt: name=git update_cache=yes state=latest
