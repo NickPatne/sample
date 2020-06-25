@@ -1,5 +1,5 @@
 ---
-- hosts: 10.136.58.25
+- hosts: 10.136.54.214
   tasks:
       - name: sample
         debug:
