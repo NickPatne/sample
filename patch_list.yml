@@ -1,0 +1,20 @@
+---
+ - hosts: 10.136.59.109
+   become: yes
+   become_user: root
+   tasks:
+      - name: Getting list of patches to be deploy
+        shell: echo "no" | yum update | sed -n '/Package/,/Transaction/p' > abcd.txt && cat abcd.txt
+        register: output
+
+      - name: Display patch list
+        debug:
+          msg: "{{ output.stdout_lines[:-1] }}"
+        when: output.stdout_lines | length != 0
+
+      - name: No patch list found
+        debug:
+          msg: "No patches to be applied"
+        when: output.stdout_lines | length == 0
+
+
